@@ -3,13 +3,14 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   max-width: 400px;
+  max-height: 290px;
   margin: 15px;
   justify-content: center;
   border-radius: 4px 4px 4px 4px;
 }
 
 .card-spot > img {
-  height: 150px;
+  height: 130px;
   width: 100%;
   object-fit: cover;
 }
@@ -19,9 +20,6 @@
   font-weight: bold;
   margin: 0;
 }
-
-
-
 
 .card-spot .card-spot-infos {
   padding: 16px;
