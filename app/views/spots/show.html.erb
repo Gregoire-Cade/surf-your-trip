@@ -1,2 +1,33 @@
-<h1>Spots#show</h1>
-<p>Find me in app/views/spots/show.html.erb</p>
+<div class="container">
+  <h1 class="text-center"> Surf Spot : <%= @spot.name %> </h1>
+
+  <div class="container-carousel">
+    <div class="carousel">
+      <div id="carousel-spot" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <% @spot.photos.each_with_index do |photo, index| %>
+          <li href="#carousel-spot" data-slide-to="<%= index %>" class=" <%= 'active' if index == 0 %> "></li>
+          <% end %>
+        </ol>
+        <div class="carousel-inner">
+          <% @spot.photos.each_with_index do |photo, index| %>
+            <div class="carousel-item <%= 'active' if index == 0 %>" alt=" <%= index %>" style="background-image: url('<%= cl_image_path photo.key %>')">
+              <%#= cl_image_tag photo.key, class: "d-block w-100" %>
+            </div>
+          <% end %>
+        </div>
+        <a class="carousel-control-prev" href="#carousel-spot" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carousel-spot" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+    <div class="carousel-spot-infos">
+
+    </div>
+  </div>
+</div>
