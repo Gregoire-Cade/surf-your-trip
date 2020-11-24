@@ -19,8 +19,10 @@ puts "Finished!"
 
 # puts "Creating spots..."
 file1 = URI.open('https://www.surfholidays.com/assets/images/blog/2015-09-08-Trestles.jpg')
+file2 = URI.open('https://www.surfertoday.com/images/stories/hossegor.jpg')
 cap_ferret = Spot.create(name: "Cap Ferret", location: "Lège-Cap-Ferret", level: "improver", user: gregoire)
 cap_ferret.photos.attach(io: file1, filename: '2015-09-08-Trestles.jpg', content_type: 'image/jpg')
+cap_ferret.photos.attach(io: file2, filename: 'hossegor.jpg', content_type: 'image/jpg')
 
 file2 = URI.open('https://www.surfertoday.com/images/stories/hossegor.jpg')
 koszalin = Spot.create(name: "Koszalin", location: "Dabki", level: "beginner", user: karolina)
