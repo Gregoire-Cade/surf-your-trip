@@ -1,7 +1,5 @@
 <div class="container">
-  <h1 class="text-center"> Surf Spot : <%= @spot.name %> </h1>
-
-  <div class="container-carousel">
+  <div class="container-carousel mt-5">
     <div class="carousel">
       <div id="carousel-spot" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -26,8 +24,59 @@
         </a>
       </div>
     </div>
-    <div class="carousel-spot-infos">
-
+    <div class="carousel-spot-infos d-flex justify-content-between align-items-end px-4">
+      <div class="card-spot-infos">
+        <h2><strong><%= @spot.name %></strong></h2>
+        <br>
+        <em><i class="fas fa-map-marker-alt px-1" style="color: rgba(0,0,0,0.7);"></i><%= @spot.location %></em>
+        <br>
+        <br>
+        <p><button type="button" class="btn btn-light">Confirm This Spot</button></p>
+      </div>
+      <div class="card-spot-reviews">
+        <p>⭐️⭐️⭐️⭐️⭐️</p>
+        <p class="m-0">4.5/5 reviews</p>
+      </div>
     </div>
   </div>
 </div>
+
+<br>
+<p class="text-center"><em><%= @spot.punchline %></em></p>
+<div class="spot-details-container">
+  <div class="spot-details row justify-content-between">
+    <div class="spot-recap col-8">
+    <p>What about the spot: <%= @spot.description %> <%#= @spot.description  %> </p>
+    <p>What about the place? <%= @spot.about_location %></p>
+    <p>Weather? </p>
+    </div>
+    <div class="spot-forecast col-4">
+      <p>map</p>
+      <p>Weather forecast for <strong><%= @spot.name %></strong> </p>
+      <p>scraping</p>
+    </div>
+  </div>
+  <div class="spot-review">
+  </div>
+</div>
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+
+
+
+

@@ -2,4 +2,12 @@
   height: 500px;
   background-position: center;
   background-size: cover;
+  border-radius: 4px 4px 0px 0px;
+}
+
+.carousel-spot-infos {
+  background-color: white;
+  border-radius: 0px 0px 4px 4px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 16px;
 }
