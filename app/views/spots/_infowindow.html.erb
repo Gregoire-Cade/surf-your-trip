@@ -1,0 +1,7 @@
+<div class="text-left">
+<h4><%= spot.name %></h4>
+<p><i class="fas fa-map-marker-alt" style="color: rgba(0,0,0,0.7);"></i>&nbsp;<%= spot.location %><br>Level: <%= spot.level %></p>
+<% if spot.photos.attached? %>
+   <%= link_to(cl_image_tag(spot.photos.first.key, height: 100, width: 200, crop: :fill), spot_path(spot)) %>
+<% end %>
+</div>
