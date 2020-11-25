@@ -7,6 +7,12 @@
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-lewagon img {
+  margin-left: 5px;
+}
+
+.navbar-lewagon img:hover {
+  opacity: 0.8;
+
+  
 }
