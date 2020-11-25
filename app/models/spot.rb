@@ -9,5 +9,5 @@ class Spot < ApplicationRecord
 
   validates :name, :level, :location, :country, presence: true
   enumerize :level, in: %i[beginner novice improver expert]
-  enumerize :beach_type, in: %i[sandy rocky glass]
+  enumerize :beach_type, in: %w[sandy rocky glass]
 end

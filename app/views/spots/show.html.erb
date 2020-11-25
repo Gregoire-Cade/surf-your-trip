@@ -1,3 +1,5 @@
+
+
 <div class="container">
   <div class="container-carousel mt-5">
     <div class="carousel">
@@ -43,19 +45,31 @@
 
 <br>
 <p class="text-center"><em><%= @spot.punchline %></em></p>
-<div class="spot-details-container">
+<div class="spot-details-container" data-stormglass-api-key="<%= ENV['STORMGLASS_API_KEY'] %>" data-latitude="<%= @spot.latitude %>" data-longitude="<%= @spot.longitude %>" >
   <div class="spot-details row justify-content-between">
     <div class="spot-recap col-8">
     <p>What about the spot: <%= @spot.description %> <%#= @spot.description  %> </p>
     <p>What about the place? <%= @spot.about_location %></p>
-    <p>Weather? </p>
+
+    <p>How's the weather atm? </p>
+    <p>Air temp: <span id='airtemperature'>12</span>°</p>
+    <p>Water temp: <span id='watertemperature'>8</span>°</p>
+
+    <p>Swell Direction: <span id='swelldirection'>WNW</span></p>
+    <p>Swell Height: <span id='swellheight'>1.6</span>m</p>
+
+    <p>Wind Direction: <span id='winddirection'>SSE</span></p>
+    <p>Wind Speed: <span id='windspeed'>12</span>km/h</p>
+
+    <p>Wave Height: <span id='waveheight'>1,3</span>m</p>
     </div>
     <div class="spot-forecast col-4">
       <div id="map"
         style="width: 100%; height: 600px;"
-        data-markers="<%= @markers.to_json %>"
+        data-markers="<%= @marker.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
+
       <p>Weather forecast for <strong><%= @spot.name %></strong> </p>
       <p>scraping</p>
     </div>
@@ -76,11 +90,3 @@
 <br>
 <br>
 <br>
-
-
-
-
-
-
-
-
