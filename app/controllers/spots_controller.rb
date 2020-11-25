@@ -14,6 +14,7 @@ class SpotsController < ApplicationController
 
   def show
     @spot = Spot.find(params[:id])
+    @review = Review.new
     @marker =
       [{
         lat: @spot.latitude,

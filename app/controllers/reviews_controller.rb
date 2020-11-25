@@ -1,9 +1,18 @@
 class ReviewsController < ApplicationController
-  def index
-    @reviews = Review.all
+  def create
+    @spot = Spot.find(params[:spot_id])
+    @review = Review.new(review_params)
+    @review.spot = @spot
+    if @review.save
+      redirect_to spot_path(@spot)
+    else
+      render 'spots/show'
+    end
   end
 
-  def show
-    @review = Review.find(params[:id])
+  private
+
+  def review_params
+    params.require(:review).permit(:title, :content)
   end
 end
