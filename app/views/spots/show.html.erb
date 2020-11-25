@@ -51,7 +51,11 @@
     <p>Weather? </p>
     </div>
     <div class="spot-forecast col-4">
-      <p>map</p>
+      <div id="map"
+        style="width: 100%; height: 600px;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
       <p>Weather forecast for <strong><%= @spot.name %></strong> </p>
       <p>scraping</p>
     </div>
