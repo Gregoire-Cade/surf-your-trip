@@ -1,0 +1,34 @@
+<div class="container" style="height: 400px;">
+  <div class="row justify-content-center">
+    <div  class="col-6">
+      <h1 class="text-center">New spot</h1>
+      <%= simple_form_for @spot do |f| %>
+        <%= f.input :name,
+                    hint: "Name of the beach/surfing spot",
+                    required: true %>
+        <%= f.input :location,
+                    hint: "Town, village, area",
+                    required: true %>
+        <%= f.input :country,
+                    required: true, as: :string %>
+        <div class="row d-flex justify-content-around">
+            <%= f.input :level, as: :radio_buttons,
+                        hint: "Who is this spot suitable for?",
+                        required: true %>
+            <%= f.input :beach_type, as: :radio_buttons %>
+        </div>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+        <%= f.input :description, 
+                     hint: "Specify the conditions at the spot" %>
+        <%= f.input :about_location, 
+                     hint: "What's worth seeing/doing/eating in the area?" %>
+        <%= f.input :punchline, 
+                     hint: "In one sentence - why is this spot worth visiting?" %>
+       
+        <%= f.submit "Add your spot!", class: "btn btn-warning btn-block" %>
+      <% end %>
+      <br>
+      <!-- <%= link_to 'Back', root_path, class: "btn btn-dark btn-block" %> -->
+    </div>
+  </div>
+</div>
