@@ -29,7 +29,9 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 
 import { initMapbox } from '../plugins/init_mapbox';
+import { getWeather } from '../components/weather';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  getWeather();
 })
