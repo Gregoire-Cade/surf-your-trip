@@ -7,7 +7,7 @@ class Spot < ApplicationRecord
   has_many_attached :photos
   extend Enumerize
 
-  validates :name, :level, :location, presence: true
+  validates :name, :level, :location, :country, presence: true
   enumerize :level, in: %i[beginner novice improver expert]
   enumerize :beach_type, in: %i[sandy rocky glass]
 end
