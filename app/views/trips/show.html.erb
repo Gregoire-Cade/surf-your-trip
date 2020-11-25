@@ -1,0 +1,8 @@
+<h2>Trip to <%= @trip.spot.location %>
+
+<h3><%= @trip.start_date %> - <%= trip.end_date %></h3>
+
+<div class ="container">
+<%= cl_image_tag(@trip.spot.photos.first.key, width: 300, crop: :fill) %>
+
+</div>
