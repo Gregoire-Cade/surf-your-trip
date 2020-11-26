@@ -8,10 +8,11 @@ class ReviewsController < ApplicationController
     @spot = Spot.find(params[:spot_id])
     @review = Review.new(review_params)
     @review.spot = @spot
+    @review.user = current_user
     if @review.save
       redirect_to spot_path(@spot)
     else
-      render 'spots/show'
+      render 'new'
     end
   end
 
