@@ -33,7 +33,7 @@ review1 = Review.create(user: gregoire, title: "Best surf spot in South West of 
 review1photo = URI.open('https://www.surfertoday.com/images/stories/hossegor.jpg')
 review1.photo.attach(io: review1photo, filename: 'hossegor.jpg', content_type: 'image/jpg')
 
-review2 = Review.create!(user: karolina, title: "Look at the waves!", content: "Best spot in town  Best spot in town Best spot in town", rating: 5, spot: cap_ferret)
+review2 = Review.create(user: karolina, title: "Look at the waves!", content: "Best spot in town  Best spot in town Best spot in town", rating: 5, spot: cap_ferret)
 review2photo = URI.open('https://www.surfertoday.com/images/stories/hossegor.jpg')
 review2.photo.attach(io: review2photo, filename: 'hossegor.jpg', content_type: 'image/jpg')
 
