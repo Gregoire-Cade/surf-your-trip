@@ -1,4 +1,9 @@
 class ReviewsController < ApplicationController
+  def new
+  @review = Review.new
+  @spot = Spot.find(params[:spot_id])
+  end
+
   def create
     @spot = Spot.find(params[:spot_id])
     @review = Review.new(review_params)
@@ -13,6 +18,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:title, :content)
+    params.require(:review).permit(:title, :content, :rating, :photo)
   end
 end
