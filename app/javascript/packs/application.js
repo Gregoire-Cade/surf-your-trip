@@ -33,5 +33,5 @@ import { getWeather } from '../components/weather';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
-  getWeather();
+  // getWeather();
 })
