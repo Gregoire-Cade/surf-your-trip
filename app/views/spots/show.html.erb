@@ -71,8 +71,27 @@
       </div>
     </div>
   </div>
-  <div class="spot-review">
+  <br>
+  <div class="row">
+    <% @spot.reviews.each do |review| %>
+    <div class="col-12 col-lg-6">
+      <div class="spot-review">
+        <% if review.photo.attached? %>
+          <%=  (cl_image_tag(review.photo.key, height: 150, width: 200, crop: :fill)) %>
+        <% end %>
+        <div class="spot-review-infos">
+           <h2><%= review.title %></h2>
+           <p>Surfer 🏄‍♂️ <%= review.user.nickname %></p>
+           <p><%= review.content %></p>
+           <% review.rating.times do %>
+            <%= image_tag("wave.png") %>
+            <% end %>
+        </div>
+      </div>
+    </div>
+    <% end %>
   </div>
+<%= link_to "Add a review", new_spot_review_path, class: "btn btn-primary"%>
 </div>
 
 

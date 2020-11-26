@@ -33,7 +33,7 @@ import { getWeather } from '../components/weather';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
-  getWeather();
+  // getWeather();
 })
 
 import { initStarRating } from '../plugins/init_star_rating';
