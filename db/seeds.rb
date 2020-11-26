@@ -21,7 +21,7 @@ puts "Finished!"
 # puts "Creating spots..."
 file1 = URI.open('https://www.surfholidays.com/assets/images/blog/2015-09-08-Trestles.jpg')
 file2 = URI.open('https://www.surfertoday.com/images/stories/hossegor.jpg')
-cap_ferret = Spot.create(name: "Cap Ferret", location: "Lège-Cap-Ferret", country: "France", level: "improver", user: gregoire, description: "Cap Ferret is a smart seaside resort at the tip of the Cap Ferret peninsula that separates the Atlantic Ocean from the Bay of Arcachon. Hidden among pine trees with its fishermen and oyster farmers in their traditional wooden huts, Cap Ferret harks back to a bygone era.", beach_type: "sandy", about_location: "blablabalbalbabla", punchline: "Try local oysters, you won't regret")
+cap_ferret = Spot.create(name: "Cap Ferret", location: "Lège-Cap-Ferret", country: "France", level: "improver", user: gregoire, description: "Cap Ferret is a smart seaside resort at the tip of the Cap Ferret peninsula that separates the Atlantic Ocean from the Bay of Arcachon. Hidden among pine trees with its fishermen and oyster farmers in their traditional wooden huts, Cap Ferret harks back to a bygone era.", beach_type: "sandy", about_location: "blablabalbalbabla", punchline: "Try local oysters, you won't regret",)
 cap_ferret.photos.attach(io: file1, filename: '2015-09-08-Trestles.jpg', content_type: 'image/jpg')
 cap_ferret.photos.attach(io: file2, filename: 'hossegor.jpg', content_type: 'image/jpg')
 
@@ -30,5 +30,11 @@ koszalin = Spot.create(name: "Koszalin", location: "Dabki", country: "Poland", l
 koszalin.photos.attach(io: file2, filename: 'hossegor.jpg', content_type: 'image/jpg')
 
 review1 = Review.create(user: gregoire, title: "Best surf spot in South West of France", content: "This surf spot is really good for beginners as the wind does not go crazy!", rating: 4, spot: cap_ferret)
+review1photo = URI.open('https://www.surfertoday.com/images/stories/hossegor.jpg')
+review1.photos.attach(io: review1photo, filename: 'hossegor.jpg', content_type: 'image/jpg')
+
+review2 = Review.create!(user: karolina, title: "Look at the waves!", content: "Best spot in town  Best spot in town Best spot in town", rating: 5, spot: cap_ferret)
+review2photo = URI.open('https://www.surfertoday.com/images/stories/hossegor.jpg')
+review2.photos.attach(io: review2photo, filename: 'hossegor.jpg', content_type: 'image/jpg')
 
 puts "Finished!"
