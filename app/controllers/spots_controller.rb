@@ -14,6 +14,7 @@ class SpotsController < ApplicationController
 
   def show
     @spot = Spot.find(params[:id])
+    @trip = Trip.new
     spot_waves(@spot)
     @review = Review.new
     @marker =
