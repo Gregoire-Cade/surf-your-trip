@@ -76,8 +76,8 @@
     <% @spot.reviews.each do |review| %>
     <div class="col-12 col-lg-6">
       <div class="spot-review">
-        <% if review.photos.attached? %>
-          <%=  (cl_image_tag(review.photos.first.key, height: 150, width: 200, crop: :fill)) %>
+        <% if review.photo.attached? %>
+          <%=  (cl_image_tag(review.photo.key, height: 150, width: 200, crop: :fill)) %>
         <% end %>
         <div class="spot-review-infos">
            <h2><%= review.title %></h2>
