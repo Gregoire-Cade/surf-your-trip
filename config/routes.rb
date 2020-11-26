@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   root to: 'pages#home'
     resources :spots, only: [:index, :show, :new, :create] do
       resources :trips, only: [:create]
-      resources :reviews, only: :create
+      resources :reviews, only: [:new, :create]
     end
     resources :trips, only: [:index, :show, :destroy]
+    
 end
