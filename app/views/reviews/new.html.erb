@@ -9,9 +9,9 @@
             <%= f.input :title %>
             <%= f.input :content %>
             <%=f.input :photo, as: :file %>
-            <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience (1 = poor, 5 = excellent)" %>
+            <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
             <br>
-            <%= f.submit "Send your review" %>
+            <%= f.submit "Send your review", class:"btn btn-primary" %>
         <% end %>
         </div>
     </div>

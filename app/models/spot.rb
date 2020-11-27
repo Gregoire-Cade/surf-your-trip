@@ -1,6 +1,6 @@
 class Spot < ApplicationRecord
   geocoded_by :location
-  after_commit :geocode, if: :will_save_change_to_location?
+  after_validation :geocode, if: :will_save_change_to_location?
   belongs_to :user
   has_many :reviews, dependent: :destroy
   has_many :trips
@@ -10,4 +10,8 @@ class Spot < ApplicationRecord
   validates :name, :level, :location, :country, presence: true
   enumerize :level, in: %i[beginner novice improver expert]
   enumerize :beach_type, in: %w[sandy rocky glass]
+
+  def city
+    location.split(',').first
+  end
 end

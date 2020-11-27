@@ -1,14 +1,13 @@
 class TripsController < ApplicationController
-    
     def index
       @trips = current_user.trips
     end
 
     def show
-      @trip = Trip.find(params[:id])        
+      @trip = Trip.find(params[:id])
     end
 
-    
+
     def create
       @trip = Trip.new(trip_params)
       @trip.user = current_user
@@ -16,7 +15,8 @@ class TripsController < ApplicationController
         if @trip.save
           redirect_to trips_path
         else
-          render :new
+          flash[:alert] = "You entered incorrect infos, please try again 🏄 "
+          redirect_to spot_path(@trip.spot)
         end
     end
 

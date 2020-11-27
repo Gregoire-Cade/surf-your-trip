@@ -3,7 +3,7 @@
 <div class="container">
   <% current_user.trips.each do |trip|%>
   <div class="card m-2">
-    <p><strong>Trip to: <%= link_to "#{trip.spot.location}, #{trip.spot.country}", spot_path(trip.spot) %></strong></p>
+    <p><strong>Trip to: <%= link_to "#{trip.spot.city}, #{trip.spot.country}", spot_path(trip.spot) %></strong></p>
     <p><%= trip.start_date%> - <%= trip.end_date%></p>
     <p><%= trip.surfers %> surfers </p>
     <p><%= link_to "Cancel the trip", trip_path(trip), method: :delete, data: {confirm: "Do you really want to cancel the trip?"} %></p>
