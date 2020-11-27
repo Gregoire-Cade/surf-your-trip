@@ -4,7 +4,21 @@ export const getWeather = () => {
   const apiKey = detailsContainer.dataset.stormglassApiKey;
   const latitude = detailsContainer.dataset.latitude;
   const longitude = detailsContainer.dataset.longitude;
-  const params = 'airTemperature,waterTemperature,swellDirection,swellHeight,windDirection,windSpeed,waveHeight';
+  const params = 'airTemperature,waterTemperature,swellDirection,windDirection,windSpeed,waveHeight';
+  function text(d) {
+        let directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
+
+        d += 22.5;
+
+        if (d < 0)
+            d = 360 - Math.abs(d) % 360;
+        else
+            d = d % 360;
+
+        let w = parseInt(d / 45);
+        return `${directions[w]}`;
+    }
+
 
 fetch(`https://api.stormglass.io/v2/weather/point?lat=${latitude}&lng=${longitude}&params=${params}`, {
   headers: {
@@ -13,23 +27,36 @@ fetch(`https://api.stormglass.io/v2/weather/point?lat=${latitude}&lng=${longitud
 }).then((response) => response.json()).then((data) => {
   // Do something with response data.
   console.log(data);
-  const airTemperature = data.hours[12].airTemperature.dwd;
+  const airTemperature = Object.values(data.hours[12].airTemperature)[0];
   document.getElementById("airtemperature").innerText = airTemperature;
 
-  const waterTemperature = data.hours[12].waterTemperature.meto;
+  const waterTemperature = Object.values(data.hours[12].waterTemperature)[0];
   document.getElementById("watertemperature").innerText = waterTemperature;
 
-  const swellDirection = data.hours[12].swellDirection.dwd;
+  const swellDirection = Object.values(data.hours[12].swellDirection)[0];
   document.getElementById("swelldirection").innerText = swellDirection;
-  const swellHeight = data.hours[12].swellHeight.dwd;
-  document.getElementById("swellheight").innerText = swellHeight;
-
-  const windDirection = data.hours[12].windDirection.icon;
-  document.getElementById("winddirection").innerText = windDirection;
-  const windSpeed = data.hours[12].windSpeed.icon;
-  document.getElementById("windspeed").innerText = windSpeed;
-
-  const waveHeight = data.hours[12].waveHeight.dwd;
+  const waveHeight = Object.values(data.hours[12].waveHeight)[0];
   document.getElementById("waveheight").innerText = waveHeight;
+
+  const windDirection = Object.values(data.hours[12].windDirection)[0];
+  const windSpeed = Object.values(data.hours[12].windSpeed)[0];
+  document.getElementById("wind-direction").innerHTML = `${text(windDirection)}<span id="windspeed">${windSpeed} km/h</span>`;
+  console.log(text(windDirection));
+  document.getElementById("wind-arrow").classList.add(text(windDirection).toLowerCase());
+
 });
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
