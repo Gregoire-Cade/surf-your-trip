@@ -1,4 +1,4 @@
-<div class="container" style="height: 400px;">
+<div class="container">
   <div class="row justify-content-center">
     <div  class="col-6">
       <h1 class="text-center">New spot</h1>
@@ -11,20 +11,24 @@
                     required: true %>
         <%= f.input :country,
                     required: true, as: :string %>
-        <div class="row d-flex justify-content-around">
-            <%= f.input :level, as: :radio_buttons,
-                        hint: "Who is this spot suitable for?",
-                        required: true %>
-            <%= f.input :beach_type, as: :radio_buttons %>
-        </div>
+        <%= f.input :level, as: :radio_buttons,
+                    required: true,
+                    input_html: { class: "tag-selector" },
+                    item_wrapper_class: 'tag-item'  %>
+        <%= f.input :beach_type, as: :radio_buttons,
+                    collection_wrapper_tag: 'div',
+                    collection_wrapper_class: 'category-wrapper',
+                    item_wrapper_class: 'category-item',
+                    input_html: {class: 'category-selector'},
+                    collection: Spot.beach_type.values %>
         <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-        <%= f.input :description, 
+        <%= f.input :description,
                      hint: "Specify the conditions at the spot" %>
-        <%= f.input :about_location, 
+        <%= f.input :about_location,
                      hint: "What's worth seeing/doing/eating in the area?" %>
-        <%= f.input :punchline, 
+        <%= f.input :punchline,
                      hint: "In one sentence - why is this spot worth visiting?" %>
-       
+
         <%= f.submit "Add your spot!", class: "btn btn-warning btn-block" %>
       <% end %>
       <br>

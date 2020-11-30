@@ -13,12 +13,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap" rel="stylesheet">
   </head>
 
-  <body>
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
-    <div class="min-height">
-    <%= yield %>
-    </div>
-    <%= render 'shared/footer' %>
+<body>
+  <div class="page-container">
+    <div class="navbar-container"><%= render "shared/navbar" %></div>
+    <div class="content-container"><%= yield %></div>
+    <div class="footer-container"><%= render "shared/flashes" %><%= render "shared/footer" %></div>
+  </div>
   </body>
 </html>
