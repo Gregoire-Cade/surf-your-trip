@@ -137,26 +137,50 @@
       </div>
     </div>
   </div>
-  <div class="row">
-    <% @spot.reviews.each do |review| %>
-    <div class="col-12 col-lg-6">
-      <div class="spot-review">
-        <% if review.photo.attached? %>
-          <%=  (cl_image_tag(review.photo.key, height: 150, width: 200, crop: :fill)) %>
-        <% end %>
-        <div class="spot-review-infos">
-           <h2><%= review.title %></h2>
-           <p>Surfer 🏄‍♂️ <%= review.user.nickname %></p>
-           <p><%= review.content %></p>
-           <% review.rating.times do %>
-            <%= image_tag("wave.png") %>
-            <% end %>
-        </div>
-      </div>
+  <br>
+
+  <div class="container reviews mt-1 mb-3 justify-content-center" style="width:880px;">
+    <div class="d-flex justify-content-between">
+    <h4 class="mb-2">Reviews</h4>
+    <%= link_to "Add a review", new_spot_review_path(@spot), class: "btn btn-primary"%>
     </div>
+    <div class="container">
+    <% @spot.reviews.each do |review| %>
+      <div class="card d-flex align-content-center mt-4" style="width: 800px; border: none;">
+       
+        <div class="spot-review-infos d-flex justify-content-between mt-2">
+          <div class="user d-flex align-items-center">
+            <% if review.user.photo.attached? %>
+              <%= (cl_image_tag(review.user.photo.key, height: 50, width: 50, crop: :fill, class: "avatar ml-2 ")) %>
+            <% else %>
+              <%= image_tag "avatar-default.png", height: 50, crop: :thumb, class: "avatar ml-2" %>
+            <% end %>
+              <p> &nbsp;&nbsp;<%= review.user.nickname %></p>
+          </div>
+          <div class="waves mr-4">
+          <p><small> &nbsp;&nbsp;<%= review.created_at.strftime("%Y-%m-%d") %></small></p>
+       
+          </div>
+        </div>
+        
+        <div class="review-content m-3">
+    
+          <p class="ml-1 mr-1"> <strong><%= review.title %></strong>   <% review.rating.times do %>
+            <%= image_tag("wave.png", style: "height: 20px; width: 20px; margin-right: -4px;") %>
+          <% end %></p>
+          <p><%= review.content %></p>
+        </div> 
+
+         <div class="spot-review-photo">
+          <% if review.photo.attached? %>
+            <%= (cl_image_tag(review.photo.key, height: 100, width: 150, crop: :fill, class:"ml-2 mb-3 rounded" )) %>
+          <% end %>
+        </div>   
+      </div>
     <% end %>
+
   </div>
-<%= link_to "Add a review", new_spot_review_path(@spot), class: "btn btn-primary"%>
+
 </div>
 
 
