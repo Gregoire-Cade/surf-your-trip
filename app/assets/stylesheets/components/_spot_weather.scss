@@ -3,6 +3,12 @@
   background: #E9EEFA;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   text-align: center;
+  h4 {
+    color: #8DB0FC;
+  }
+  h5 {
+    color: #548AFF;
+  }
 }
 
 .water-temp {
@@ -10,6 +16,12 @@
   background: #E9EEFA;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   text-align: center;
+    h4 {
+    color: #8DB0FC;
+  }
+  h5 {
+    color: #548AFF;
+  }
 }
 
 .wave-height {
@@ -17,4 +29,18 @@
   background: #E9EEFA;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   text-align: center;
+    h4 {
+    color: #8DB0FC;
+  }
+  h5 {
+    color: #548AFF;
+  }
+}
+
+
+
+.wind-spot-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
