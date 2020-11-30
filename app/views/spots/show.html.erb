@@ -67,8 +67,10 @@
       </div>
 
       <div class="card-spot-reviews">
-        <p class="m-0"> <%= image_tag("wave.png", width: 22) %> <%= @spot.waves %> </p>
-        <p><i class="far fa-comment mr-1" style="color: rgba(0,0,0,0.6); "></i> <%= @spot.reviews.count %> </p>
+        <p class="m-0"><% @spot.waves.times do %>
+            <%= image_tag("wave.png", width: 20, style: "margin-left: -6px;") %>
+           <% end %> </p>
+        <p class="text-right"><i class="far fa-comment mr-1" style="color: rgba(0,0,0,0.6); "></i> <%= @spot.reviews.count %> </p>
       </div>
     </div>
   </div>
