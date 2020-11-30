@@ -1,3 +1,9 @@
 .spot-details-container {
   margin: 50px 5% 50px 10%;
 }
+
+.page-container {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+}
