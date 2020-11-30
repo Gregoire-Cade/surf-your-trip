@@ -4,7 +4,7 @@ export const getWeather = () => {
   const apiKey = detailsContainer.dataset.stormglassApiKey;
   const latitude = detailsContainer.dataset.latitude;
   const longitude = detailsContainer.dataset.longitude;
-  const params = 'airTemperature,waterTemperature,swellDirection,windDirection,windSpeed,waveHeight';
+  const params = 'airTemperature,waterTemperature,windDirection,windSpeed,waveHeight';
   function text(d) {
         let directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
 
@@ -33,8 +33,6 @@ fetch(`https://api.stormglass.io/v2/weather/point?lat=${latitude}&lng=${longitud
   const waterTemperature = Object.values(data.hours[12].waterTemperature)[0];
   document.getElementById("watertemperature").innerText = waterTemperature;
 
-  const swellDirection = Object.values(data.hours[12].swellDirection)[0];
-  document.getElementById("swelldirection").innerText = swellDirection;
   const waveHeight = Object.values(data.hours[12].waveHeight)[0];
   document.getElementById("waveheight").innerText = waveHeight;
 
