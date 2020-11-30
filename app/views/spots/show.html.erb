@@ -139,14 +139,14 @@
   </div>
   <br>
 
-  <div class="container reviews mt-1 mb-3 justify-content-center" style="width:880px;">
+  <div class="container reviews mt-4 mb-3 justify-content-center" style="width:1200px;">
     <div class="d-flex justify-content-between">
     <h4 class="mb-2">Reviews</h4>
     <%= link_to "Add a review", new_spot_review_path(@spot), class: "btn btn-primary"%>
     </div>
-    <div class="container">
+    <div class="container ">
     <% @spot.reviews.each do |review| %>
-      <div class="card d-flex align-content-center mt-4" style="width: 800px; border: none;">
+      <div class="card d-flex align-content-center mt-4 justify-self-center" style="border: none;">
        
         <div class="spot-review-infos d-flex justify-content-between mt-2">
           <div class="user d-flex align-items-center">
@@ -163,14 +163,13 @@
           </div>
         </div>
         
-        <div class="review-content m-3">
+        <div class="review-content m-2">
     
-          <p class="ml-1 mr-1"> <strong><%= review.title %></strong>   <% review.rating.times do %>
+          <p class="mt-1 mr-1"> <strong><%= review.title %></strong>   <% review.rating.times do %>
             <%= image_tag("wave.png", style: "height: 20px; width: 20px; margin-right: -4px;") %>
           <% end %></p>
           <p><%= review.content %></p>
-        </div> 
-
+        </div>
          <div class="spot-review-photo">
           <% if review.photo.attached? %>
             <%= (cl_image_tag(review.photo.key, height: 100, width: 150, crop: :fill, class:"ml-2 mb-3 rounded" )) %>
