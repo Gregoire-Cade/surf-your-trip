@@ -1,6 +1,7 @@
 class TripsController < ApplicationController
     def index
-      @trips = current_user.trips
+      @upcoming_trips = current_user.trips.where("start_date >= ?", Time.current.to_date)
+      @previous_trips = current_user.trips.where("end_date <= ?", Time.current.to_date)
     end
 
     def show
