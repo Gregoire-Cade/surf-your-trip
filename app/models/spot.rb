@@ -1,4 +1,5 @@
 class Spot < ApplicationRecord
+  include PgSearch::Model
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
   after_touch :spot_waves
@@ -11,6 +12,12 @@ class Spot < ApplicationRecord
   validates :name, :level, :location, :country, presence: true
   enumerize :level, in: %i[beginner novice improver expert]
   enumerize :beach_type, in: %w[sandy rocky glass]
+
+  pg_search_scope :spot_search,
+  against: [ :beach_type, :country, :level ],
+  using: {
+    tsearch: { prefix: true }
+  }
 
   def city
     location.split(',').first
@@ -27,4 +34,5 @@ class Spot < ApplicationRecord
     self.save
     return self.waves
   end
+
 end
