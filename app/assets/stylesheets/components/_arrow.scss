@@ -1,8 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Dosis:200,400,500,600);
 .compass {
   display: block;
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   border-radius: 100%;
   box-shadow: 0 0 10px rgba(0, 0, 0, .85);
   position: relative;
@@ -16,7 +16,7 @@
     width: 100%;
     content: "N";
     font-size: 20px;
-    top: -2px;
+    top: 5px;
   }
   .direction {
     height: 100%;
@@ -40,13 +40,13 @@
       line-height: 80px;
       display: block;
       margin-top: -45px;
-      font-size: 40px;
+      font-size: 60px;
       font-weight: bold;
       span {
         display: block;
         line-height: normal;
-        margin-top: -24px;
-        font-size: 20px;
+        margin-top: -10px;
+        font-size: 30px;
         text-transform: uppercase;
         font-weight: normal;
       }
@@ -62,12 +62,12 @@
       content: "";
       width: 0;
       height: 0;
-      border-left: 5px solid transparent;
-      border-right: 5px solid transparent;
-      border-bottom: 10px solid red;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: 20px solid red;
       position: absolute;
-      top: -6px;
-      left: 50%;
+      top: -10px;
+      left: 48%;
       margin-left: -5px;
       z-index: 99;
     }
