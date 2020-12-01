@@ -2,7 +2,12 @@ class SpotsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @spots = Spot.all
+    if params.dig(:search).present?
+      @spots = Spot.spot_search(params.dig(:search).values.flatten.join(" "))
+    else
+      @spots = Spot.all
+    end
+
     @markers = @spots.geocoded.map do |spot|
       {
         lat: spot.latitude,
@@ -40,6 +45,7 @@ class SpotsController < ApplicationController
       render :new
     end
   end
+  
 
   private
   def spot_params

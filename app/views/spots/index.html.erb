@@ -1,3 +1,25 @@
+<div class="container">
+  <div class="form-wrapper"> 
+    <%= simple_form_for :search, method: "get", class: 'form-inline' do |f| %>
+      <div class="form-row">
+        <div class="col-3">
+          <%= f.input :country,  as: :string, required: false,
+                      input_html: {class: 'form-control-sm', style: "width: 200px;", value: params.dig(:search, :country) }%>
+        </div>
+         <div class="col-2">
+          <%= f.input :level, collection: Spot.level.values, as: :radio_buttons, required: false, input_html: {class: 'form-control-sm', value: params.dig(:search, :level) }%>
+        </div>
+        <div class="col-2">
+          <%= f.input :beach_type, collection: Spot.beach_type.values, as: :radio_buttons, required: false, input_html: {class: 'form-control-sm', value: params.dig(:search, :beach_type) }%>
+        </div>
+      </div>
+      <%= f.submit "Search", class: "btn btn-primary" %>
+      <%= link_to "Reset the search", spots_path, class: "btn btn-primary" %>
+       
+    <% end %>
+  </div> 
+</div>
+
 <div style="display: grid; grid-template-columns: 2fr 1.4fr; grid-gap: 2px;">
 
   <div class="cards my-5">
