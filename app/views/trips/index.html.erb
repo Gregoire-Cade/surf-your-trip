@@ -1,12 +1,54 @@
-<h2 class="text-center  ">My trips</h2>
-
-<div class="container">
-  <% current_user.trips.each do |trip|%>
-  <div class="card m-2">
-    <p><strong>Trip to: <%= link_to "#{trip.spot.city}, #{trip.spot.country}", spot_path(trip.spot) %></strong></p>
-    <p><%= trip.start_date%> - <%= trip.end_date%></p>
-    <p><%= trip.surfers %> surfers </p>
-    <p><%= link_to "Cancel the trip", trip_path(trip), method: :delete, data: {confirm: "Do you really want to cancel the trip?"} %></p>
+<div class="container mt-5" style="background-color: white; min-height: 455px;">
+  <h2 class="text-center pt-3">Upcoming Trips</h2>
+  <div class="container">
+    <% @upcoming_trips.each do |trip|%>
+      <div class="card m-2">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-4">
+              <%= cl_image_tag(trip.spot.photos.first.key, width: 300, crop: :fill) %>
+            </div>
+            <div class="col-4">
+              <p><strong>Trip to: <%= link_to "#{trip.spot.city}, #{trip.spot.country}", spot_path(trip.spot) %></strong></p>
+              <p>From <%= trip.start_date%> Until <%= trip.end_date%></p>
+              <p><%= trip.surfers %> surfers </p>
+              <p>Level: <%= trip.spot.level%></p>
+            </div>
+            <div class="col-4 text-right">
+              <p><%= link_to "❌ Cancel the trip", trip_path(trip), method: :delete, data: {confirm: "Do you really want to cancel the trip?"} %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+     <% end %>
   </div>
-   <% end %>
+
+  <h2 class="text-center mt-5 mb-2">Previous Trips</h2>
+  <div class="container">
+    <% @previous_trips.each do |trip|%>
+      <div class="card m-2">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-4">
+              <%= cl_image_tag(trip.spot.photos.first.key, width: 300, crop: :fill) %>
+            </div>
+            <div class="col-4">
+              <p><strong>Trip to: <%= link_to "#{trip.spot.city}, #{trip.spot.country}", spot_path(trip.spot) %></strong></p>
+              <p>From <%= trip.start_date%> Until <%= trip.end_date%></p>
+              <p><%= trip.surfers %> surfers </p>
+              <p>Level: <%= trip.spot.level%></p>
+            </div>
+            <div class="col-4 text-right">
+              <p><%= link_to "Leave a Review", new_spot_review_path(trip.spot), class: "btn btn-primary" %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+     <% end %>
+  </div>
+
+
+  <%= link_to 'Back to Spots', spots_path, class: "btn btn-dark mb-2" %>
 </div>
+
+
