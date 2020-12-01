@@ -2,11 +2,23 @@
     background-size: cover;
     background-position: center;
     height: calc(100vh - 126px);
-    padding: 150px 0;
-  
     align-content: center;
   }
-  
+
+.banner-video {
+  height: calc(100vh - 126px);
+  width: 100%;
+  object-fit: cover;
+}
+
+.banner-container{
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+
+}
   .banner h1 {
     margin: 0;
     color: white;
@@ -14,14 +26,14 @@
     font-size: 32px;
     font-weight: bold;
   }
-  
+
   .banner p {
     font-size: 20px;
     color: white;
     opacity: .7;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
   }
-  
+
   .banner .btn {
       padding: 25px;
       box-shadow: 0 0 15px rgba(0,0,0,0.2);
