@@ -2,7 +2,6 @@
 
 <h3><%= @trip.start_date %> - <%= @trip.end_date %></h3>
 <h2><%= @trip.surfers %></h2>
-
 <div class ="container">
 <%= cl_image_tag(@trip.spot.photos.first.key, width: 300, crop: :fill) %>
 
