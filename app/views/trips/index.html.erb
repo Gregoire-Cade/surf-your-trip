@@ -1,4 +1,5 @@
 <div class="container mt-5" style="background-color: white; min-height: 455px;">
+  <%= link_to 'Back to Spots', spots_path, class: "btn btn-dark mt-2" %>
   <h2 class="text-center pt-3">Upcoming Trips</h2>
   <div class="container">
     <% @upcoming_trips.each do |trip|%>
@@ -15,7 +16,7 @@
               <p>Level: <%= trip.spot.level%></p>
             </div>
             <div class="col-4 text-right">
-              <p><%= link_to "❌ Cancel the trip", trip_path(trip), method: :delete, data: {confirm: "Do you really want to cancel the trip?"} %></p>
+              <p><%= link_to "Cancel the trip ❌", trip_path(trip), method: :delete, data: {confirm: "Do you really want to cancel the trip?"} %></p>
             </div>
           </div>
         </div>
@@ -46,9 +47,6 @@
       </div>
      <% end %>
   </div>
-
-
-  <%= link_to 'Back to Spots', spots_path, class: "btn btn-dark mb-2" %>
 </div>
 
 
