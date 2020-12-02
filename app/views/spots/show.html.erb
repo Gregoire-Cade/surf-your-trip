@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="container-carousel mt-5">
+  <div class="container-carousel mt-4">
     <div class="carousel">
       <div id="carousel-spot" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -31,9 +31,6 @@
         <br>
         <br>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal">
-          Confirm this spot
-        </button>
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -64,17 +61,19 @@
         </div>
       </div>
       <div class="card-spot-reviews">
-        <p class="m-0">
+        <p class="m-0 text-right">
           <% @spot.waves.times do %>
             <%= image_tag("wave.png", width: 20, style: "margin-left: -6px;") %>
           <% end %>
         </p>
         <p class="text-right"><i class="far fa-comment mr-1" style="color: rgba(0,0,0,0.6); "></i> <%= @spot.reviews.count %> </p>
+        <button type="button" class="button-spot" data-toggle="modal" data-target="#exampleModal">
+         Confirm this spot
+        </button>
       </div>
     </div>
   </div>
-  <%= link_to "Go back to Spots", spots_path, class: "btn btn-dark"%>
-    <h2 class="text-center font-weight-bold mb-5"><em>"<%= @spot.punchline %>"</em></h2>
+    <h2 class="text-center font-weight-bold my-4"><em><i class="fas fa-quote-left"; style="font-size: 25px;"> </i><%= @spot.punchline %> <i class="fas fa-quote-right"; style="font-size: 25px;"></i></em></h2>
 
   <div class="spot-details-container container card py-3  rounded shadow" data-stormglass-api-key="<%= ENV['STORMGLASS_API_KEY'] %>" data-latitude="<%= @spot.latitude %>" data-longitude="<%= @spot.longitude %>" >
     <div class="d-flex justify-content-between align-items-center">
