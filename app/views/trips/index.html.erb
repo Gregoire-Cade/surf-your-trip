@@ -9,7 +9,7 @@
               <%= cl_image_tag(trip.spot.photos.first.key, width: 300, crop: :fill) %>
             </div>
             <div class="col-4">
-              <p><strong>Trip to: <%= link_to "#{trip.spot.city}, #{trip.spot.country}", spot_path(trip.spot) %></strong></p>
+              <p><strong><%= link_to "#{trip.spot.city}, #{trip.spot.country}", spot_path(trip.spot) %></strong></p>
               <p>From <%= trip.start_date%> Until <%= trip.end_date%></p>
               <p><%= trip.surfers %> surfers </p>
               <p>Level: <%= trip.spot.level%></p>
