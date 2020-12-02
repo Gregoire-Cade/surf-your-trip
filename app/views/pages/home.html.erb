@@ -1,11 +1,11 @@
 <div class="banner position-relative">
   <%= video_tag "video.mp4", class: "banner-video", autoplay: :autoplay, loop: :loop, muted: :muted %>
   <div class="banner-container d-flex justify-content-center align-content-center">
-    <%= link_to "Browse Spots!", spots_path, class: "text-center btn btn-flat"%>
+    <%= link_to "Browse Spots!", spots_path, class: "text-center btn btn-banner"%>
   </div>
 </div>
 
-<h2 class="text-center mt-5">Best Rated Surf Spots</h2>
+<h3 class="text-center mt-5">Best Rated Surf Spots</h3>
 <div class="cards my-5">
     <% @spots.each do |spot| %>
       <div class="card-spot">
