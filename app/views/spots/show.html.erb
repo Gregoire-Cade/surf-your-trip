@@ -73,7 +73,7 @@
       </div>
     </div>
   </div>
-    <h2 class="text-center font-weight-bold my-4"><em><i class="fas fa-quote-left"; style="font-size: 25px;"> </i><%= @spot.punchline %> <i class="fas fa-quote-right"; style="font-size: 25px;"></i></em></h2>
+    <h2 class="text-center font-weight-light my-4"><em><i class="fas fa-quote-left"; style="font-size: 25px;"> </i><%= @spot.punchline %> <i class="fas fa-quote-right"; style="font-size: 25px;"></i></em></h2>
 
   <div class="spot-details-container container card py-3  rounded shadow" data-stormglass-api-key="<%= ENV['STORMGLASS_API_KEY'] %>" data-latitude="<%= @spot.latitude %>" data-longitude="<%= @spot.longitude %>" >
     <div class="d-flex justify-content-between align-items-center">
@@ -143,13 +143,13 @@
     <div class="container">
       <div class="d-flex justify-content-between">
       <h4 class="mb-2">Reviews</h4>
-      <%= link_to "Add a review", new_spot_review_path(@spot), class: "btn btn-primary"%>
+      <%= link_to "Add a review", "#add-review", class: "btn btn-primary"%>
       </div>
       <% if @spot.reviews.blank? %>
         Be the first to leave a review for <%= @spot.name %>
       <% else %>
         <% @spot.reviews.each do |review| %>
-          <div class="card d-flex align-content-center mt-4 p-3 justify-self-center border rounded ">
+          <div class="card d-flex align-content-center mt-4 p-2 justify-self-center border rounded" id="review-<%= review.id %>">
             <div class="spot-review-infos d-flex justify-content-between mt-2">
               <div class="user d-flex align-items-center">
                 <% if review.user.photo.attached? %>
@@ -174,9 +174,27 @@
                 <%= (cl_image_tag(review.photo.key, height: 100, width: 150, crop: :fill, class:"ml-2 mb-3 rounded" )) %>
               <% end %>
             </div>
-          </div>
-        <% end %>
-      <% end %>
+          </div> 
+          <% end %>
+      <% end %> 
+        
+    
+      
     </div>
+   
+  </div>
+
+  <div class="container mt-4 mb-3 justify-content-center card py-3 border rounded shadow" id="add-review">
+     <div class="card d-flex align-content-center mt-4 p-3 justify-self-center border rounded ">
+        <h4>Add a review</h4>
+        <%= simple_form_for [ @spot, @review ], remote: true do |f| %>
+          <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
+          <%= f.input :title %>
+          <%= f.input :content %>
+          <%=f.input :photo, as: :file %>
+          <br>
+          <%= f.submit "Send your review", class:"btn btn-primary" %>
+        <% end %>
+      </div>
   </div>
 </div>

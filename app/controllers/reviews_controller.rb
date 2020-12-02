@@ -10,9 +10,9 @@ class ReviewsController < ApplicationController
     @review.spot = @spot
     @review.user = current_user
     if @review.save
-      redirect_to spot_path(@spot)
+      redirect_to spot_path(@spot, anchor: "review-#{@review.id}")
     else
-      render 'new'
+      render 'spots/show'
     end
   end
 
