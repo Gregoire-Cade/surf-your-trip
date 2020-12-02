@@ -1,20 +1,20 @@
 .button-spot {
-  padding: 15px 25px;
-  font-size: 24px;
+  padding: 12px 22px;
+  font-size: 20px;
   text-align: center;
   cursor: pointer;
   outline: none;
   color: #fff;
-  background-color: #ff904b;
+  background-color: rgba(255, 144, 75, 0.8);
   border: none;
   border-radius: 15px;
   box-shadow: 0 9px #999;
 }
 
-.button-spot:hover {background-color: #3e8e41}
+.button-spot:hover {background-color: rgb(255, 144, 75)}
 
 .button-spot:active {
-  background-color: #3e8e41;
+  background-color: rgb(255, 144, 75);
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
