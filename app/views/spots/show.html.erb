@@ -47,15 +47,15 @@
               </div>
               <div class="container">
                 <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
-                    <%= simple_form_for [@spot, @trip] do |f| %>
-                  <div class="modal-body">
+                  <%= simple_form_for [@spot, @trip] do |f| %>
+                    <div class="modal-body">
                       <%= f.input :surfers, as: :integer, label: false, placeholder: "We'll be 3 🏄🏄‍♂️🏄‍♀️ " %>
                       <%= f.input :start_date, as: :string, label: false, input_html: {class: "datepicker form-control", placeholder: "Start date"} %>
                       <%= f.input :end_date, as: :string, label: false, input_html: {class: "datepicker form-control", placeholder: "End date"} %>
-                  </div>
-                  <div class="modal-footer">
-                    <%= f.submit "Surf my trip", class: "btn btn-primary" %>
-                  </div>
+                    </div>
+                    <div class="modal-footer">
+                      <%= f.submit "Surf my trip", class: "btn btn-primary" %>
+                    </div>
                   <% end %>
                 </div>
               </div>
@@ -63,93 +63,94 @@
           </div>
         </div>
       </div>
-
       <div class="card-spot-reviews">
-        <p class="m-0"><% @spot.waves.times do %>
+        <p class="m-0">
+          <% @spot.waves.times do %>
             <%= image_tag("wave.png", width: 20, style: "margin-left: -6px;") %>
-           <% end %> </p>
+          <% end %>
+        </p>
         <p class="text-right"><i class="far fa-comment mr-1" style="color: rgba(0,0,0,0.6); "></i> <%= @spot.reviews.count %> </p>
       </div>
     </div>
   </div>
-</div>
-<br>
-<div class="container">
-<%= link_to "Go back to Spots", spots_path, class: "btn btn-dark"%>
-</div>
-<br>
-<p class="text-center font-weight-bold"><em>"<%= @spot.punchline %>"</em></p>
+  <%= link_to "Go back to Spots", spots_path, class: "btn btn-dark"%>
+    <h2 class="text-center font-weight-bold mb-5"><em>"<%= @spot.punchline %>"</em></h2>
 
-<div class="spot-details-container container" data-stormglass-api-key="<%= ENV['STORMGLASS_API_KEY'] %>" data-latitude="<%= @spot.latitude %>" data-longitude="<%= @spot.longitude %>" >
-  <div class="spot-details row justify-content-between">
-
-    <div class="spot-recap col-8">
-      <div class="row m-0">
-        <div class="col-8">
-          <div class="wind-infos">
-            <p><strong>About the spot: </strong><%= @spot.description %></p>
-            <p><strong>About <%= @spot.city %>: </strong><%= @spot.about_location %></p>
-            <div class="wind-spot-info">
-              <p class="text-center">Wind 🌬</p>
-              <div class="compass" id="wind">
-                <div class="direction">
-                  <p id="wind-direction">SW<span id="windspeed">km/h</span></p>
-                </div>
-                <div class="arrow" id="wind-arrow"></div>
+  <div class="spot-details-container container card py-3  rounded shadow" data-stormglass-api-key="<%= ENV['STORMGLASS_API_KEY'] %>" data-latitude="<%= @spot.latitude %>" data-longitude="<%= @spot.longitude %>" >
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="w-50 pl-3">
+        <p class="w-70"><strong>About the spot: </strong><%= @spot.description %></p>
+        <p><strong>About <%= @spot.city %>: </strong><%= @spot.about_location %></p>
+      </div>
+      <div class="w-50">
+        <div class="wind-infos">
+          <div class="wind-spot-info">
+            <h2 class="text-center">Wind</h2>
+            <div class="compass" id="wind">
+              <div class="direction">
+                <p id="wind-direction">SW<span id="windspeed">km/h</span></p>
               </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-4">
-          <em><p class="text-center">Current Weather on <%= Time.now.strftime("%d/%m/%Y 12:00")%></p></em>
-          <div class="container weather" style="display: grid; grid-template-rows: 1fr 1fr 1fr; grid-gap: 16px;">
-            <div class="card air-temp">
-              <div class="card-body">
-                <h4>Air temp</h4>
-                <%= image_tag "thermometer.png", class: "my-2"%>
-                <h5><span id='airtemperature'>12</span>°</h5>
-              </div>
-            </div>
-            <div class="card water-temp">
-              <div class="card-body">
-                <h4>Water temp</h4>
-                <%= image_tag "water-weather.png", class: "my-2" %>
-                <h5><span id='watertemperature'>8</span>°</h5>
-              </div>
-            </div>
-            <div class="card wave-height">
-              <div class="card-body">
-                <h4>Wave height</h4>
-                <%= image_tag "wave-show.png", class: "my-2" %> <%= image_tag("wave-height.png") %>
-                <h5><span id='waveheight'>1,3</span>m</h5>
-              </div>
+              <div class="arrow" id="wind-arrow"></div>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-    <div class="spot-forecast col-4">
+    <div class="spot-forecast d-flex mt-5">
+      <div class="col-3 p-0">
+        <em><p class="text-center m-0">Current Weather on</p>
+          <p class="text-center"><%= Time.now.strftime("%d/%m/%Y 12:00")%></p></em>
+        <div class="container weather d-flex flex-column align-items-center">
+          <div class="card air-temp weather-forecast-card mb-3">
+            <div class="card-body">
+              <h4>Air temp</h4>
+              <%= image_tag "thermometer.png", class: "my-2"%>
+              <h5><span id='airtemperature'>12</span>°</h5>
+            </div>
+          </div>
+          <div class="card water-temp weather-forecast-card mb-3">
+            <div class="card-body">
+              <h4>Water temp</h4>
+              <%= image_tag "water-weather.png", class: "my-2" %>
+              <h5><span id='watertemperature'>8</span>°</h5>
+            </div>
+          </div>
+          <div class="card wave-height weather-forecast-card">
+            <div class="card-body">
+              <h4>Wave height</h4>
+              <%= image_tag "wave-show.png", class: "my-2" %> <%= image_tag("wave-height.png") %>
+              <h5><span id='waveheight'>1,3</span>m</h5>
+            </div>
+          </div>
+        </div>
+      </div>
       <div id="map"
-        style="width: 100%; height: 635px;"
+        style="width: 100%; height: 500px;"
         data-markers="<%= @marker.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
     </div>
-  </div>
-  <br>
-
-  <div class="container reviews mt-4 mb-3 justify-content-center" style="width:1200px;">
-    <div class="container ">
-    <div class="d-flex justify-content-between">
-    <h4 class="mb-2">Reviews</h4>
-    <%= link_to "Add a review", new_spot_review_path(@spot), class: "btn btn-primary"%>
+    <div class="spot-details row justify-content-between">
+      <div class="spot-recap col-8">
+        <div class="row m-0">
+          <div class="col-8">
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+
+  <div class="container reviews mt-4 mb-3 justify-content-center card py-3 border rounded shadow">
+    <div class="container">
+      <div class="d-flex justify-content-between">
+      <h4 class="mb-2">Reviews</h4>
+      <%= link_to "Add a review", new_spot_review_path(@spot), class: "btn btn-primary"%>
+      </div>
       <% if @spot.reviews.blank? %>
         Be the first to leave a review for <%= @spot.name %>
       <% else %>
         <% @spot.reviews.each do |review| %>
-          <div class="card d-flex align-content-center mt-4 p-3 justify-self-center border rounded shadow">
+          <div class="card d-flex align-content-center mt-4 p-3 justify-self-center border rounded ">
             <div class="spot-review-infos d-flex justify-content-between mt-2">
               <div class="user d-flex align-items-center">
                 <% if review.user.photo.attached? %>
@@ -157,41 +158,26 @@
                 <% else %>
                   <%= image_tag "avatar-default.png", height: 50, crop: :thumb, class: "avatar" %>
                 <% end %>
-                  <p class="m-0"> &nbsp;&nbsp;<%= review.user.nickname %></p> <span><small> &nbsp;&nbsp;<%= review.created_at.strftime("%Y-%m-%d") %></small></span>
+                <p class="m-0"> &nbsp;&nbsp;<%= review.user.nickname %></p> <span><small> &nbsp;&nbsp;<%= review.created_at.strftime("%Y-%m-%d") %></small></span>
               </div>
               <div class="waves mr-4">
-              <% review.rating.times do %>
-              <%= image_tag("wave.png", style: "height: 20px; width: 20px; margin-right: -4px;") %>
-            <% end %>
-
+                <% review.rating.times do %>
+                  <%= image_tag("wave.png", style: "height: 20px; width: 20px; margin-right: -4px;") %>
+                <% end %>
               </div>
             </div>
-
-          <div class="review-content m-2">
-
-            <p class="mt-1 mr-1"> <strong><%= review.title %></strong> </p>
-            <p class="m-0"><%= review.content %></p>
+            <div class="review-content m-2">
+              <p class="mt-1 mr-1"> <strong><%= review.title %></strong> </p>
+              <p class="m-0"><%= review.content %></p>
+            </div>
+            <div class="spot-review-photo">
+              <% if review.photo.attached? %>
+                <%= (cl_image_tag(review.photo.key, height: 100, width: 150, crop: :fill, class:"ml-2 mb-3 rounded" )) %>
+              <% end %>
+            </div>
           </div>
-          <div class="spot-review-photo">
-            <% if review.photo.attached? %>
-              <%= (cl_image_tag(review.photo.key, height: 100, width: 150, crop: :fill, class:"ml-2 mb-3 rounded" )) %>
-            <% end %>
-          </div>
-        </div>
+        <% end %>
       <% end %>
-    <%end%>
+    </div>
   </div>
 </div>
-
-
-
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>

@@ -5,6 +5,7 @@
  <div class="container new-review">
     <div class="row">
         <div class="col-xs-4">
+          <h2 class="text-center"> <%= @spot.name %>'s spot </h2>
         <%= simple_form_for [ @spot, @review ] do |f| %>
             <%= f.input :title %>
             <%= f.input :content %>

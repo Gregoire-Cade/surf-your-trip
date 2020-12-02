@@ -1,26 +1,28 @@
 <div style="display: grid; grid-template-columns: 2fr 1.4fr; grid-gap: 2px;">
   <div>
-    <div class="d-flex justify-content-center" style="box-shadow: 0 10px 8px -5px rgba(0,0,0,0.1); background: rgba(255, 255, 255, 0.5); position: sticky; top: 0px; z-index: 1000;">
+    <div class="d-flex justify-content-center mt-2" style="position: sticky; top: 0px; z-index: 1000;  background-color: rgba(244,  244, 244, 0.8)">
       <%= simple_form_for :search, method: "get", class: 'form-inline' do |f| %>
         <div class="d-flex">
-         <div class="card mr-2 mb-n2 p-2" style="border: none; background: rgba(255, 255, 255, 0.4);">
+         <div class="mr-2 mb-n2 p-2">
             <%= f.input :level, collection: Spot.level.values, as: :radio_buttons, required: false, input_html: {class: "tag-selector", value: params.dig(:search, :level) }, item_wrapper_class: 'tag-item' %>
           </div>
-         <div class="card ml-2 mb-n2 p-2" style="border: none; background: rgba(255, 255, 255, 0.4);">
+         <div class="ml-2 mb-n2 p-2">
             <%= f.input :beach_type, collection: Spot.beach_type.values, as: :radio_buttons, required: false, input_html: {class: "tag-selector", value: params.dig(:search, :beach_type) }, item_wrapper_class: 'tag-item'%>
           </div>
         </div>
-        <div class="card mt-n2 p-2 form-inline" style="border: none; background: rgba(255, 255, 255, 0.4);">
-          <%= f.input :country, as: :string, required: false, input_html: {class: 'form-control-sm ml-2', style: "width: 400px;", value: params.dig(:search, :country) }%>
-        </div>
-          <div class="text-center p-2 m-0">
-          <%= f.submit "Search 🔍", class: "btn btn-primary mr-2" %>
-          <%= link_to "Reset the search", spots_path, class: "btn btn-primary ml-2" %>
+        <div class="d-flex input-container align-items-center mb-3">
+          <div class="p-2 form-inline">
+            <%= f.input :country, as: :string, required: false, label: false, placeholder: "Country...", input_html: {class: 'form-control-sm', style: "width: 330px; height: 38px;", value: params.dig(:search, :country) }%>
           </div>
+            <div class="d-flex text-center ml-3 p-2">
+            <%= f.submit "Search 🔍", class: "btn btn-primary mr-2" %>
+            <%= link_to "Reset", spots_path, class: "btn btn-primary ml-2" %>
+            </div>
+        </div>
         <% end %>
     </div>
 
-    <div class="cards my-5">
+    <div class="cards my-3">
       <% @spots.each do |spot| %>
         <div class="card-spot">
           <% if spot.photos.attached? %>
