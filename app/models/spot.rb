@@ -10,8 +10,8 @@ class Spot < ApplicationRecord
   extend Enumerize
 
   validates :name, :level, :location, :country, presence: true
-  enumerize :level, in: %i[beginner novice improver expert]
-  enumerize :beach_type, in: %w[sandy rocky glass]
+  enumerize :level, in: %i[Beginner Novice Improver Expert]
+  enumerize :beach_type, in: %w[Sandy Rocky Glass]
 
   pg_search_scope :spot_search,
   against: [ :beach_type, :country, :level ],
