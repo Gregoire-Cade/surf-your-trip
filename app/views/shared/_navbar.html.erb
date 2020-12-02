@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to(image_tag("logo.png", height: 110, crop: :fill), root_path) %>
+  <%= link_to(image_tag("logo.png", height: 90, crop: :fill), root_path) %>
 
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,9 +10,9 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <div class="buttons text-center mr-3">
     <% if user_signed_in? %>
-      <%= link_to "My trips", trips_path , class: "btn btn-primary" %>
-      <%= link_to "Add your spot", new_spot_path, class: "btn btn-primary" %>
-      <%= link_to "Browse spots", spots_path , class: "btn btn-primary" %>
+      <%= link_to "My trips", trips_path , class: "btn btn-navbar" %>
+      <%= link_to "Add your spot", new_spot_path, class: "btn btn-navbar" %>
+      <%= link_to "Browse spots", spots_path , class: "btn btn-navbar" %>
     <% end %>
     </div>
     <ul class="navbar-nav mr-auto">
