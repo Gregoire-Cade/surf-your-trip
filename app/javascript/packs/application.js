@@ -32,12 +32,14 @@ import "../plugins/flatpickr"
 import { initMapbox } from '../plugins/init_mapbox';
 import { getWeather } from '../components/weather';
 import { initStarRating } from '../plugins/init_star_rating';
+import { magicBtn } from '../components/magic-button';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initStarRating();
   flatpickr(".datepicker", {});
   // getWeather();
+  magicBtn();
 })
 
 
