@@ -1,9 +1,19 @@
 <div class="banner position-relative">
   <%= video_tag "video.mp4", class: "banner-video", autoplay: :autoplay, loop: :loop, muted: :muted %>
-  <div class="banner-container d-flex justify-content-center align-content-center">
-    <%= link_to "Browse Spots!", spots_path, class: "text-center btn btn-banner"%>
+  <div class="banner-container">
+    <button class="magicBtn">
+    <div class="moveGroup">
+      <div class="overflowCont">
+        Browse!
+      </div>
+      <div class="btnName">
+        Aloha!
+      </div>
+    </div>
+    </button>
   </div>
 </div>
+
 
 <h3 class="text-center mt-5">Best Rated Surf Spots</h3>
 <div class="cards my-5">
