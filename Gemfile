@@ -24,6 +24,7 @@ gem 'redis', '~> 4.0'
 gem 'pg_search', '~> 2.3.0'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+gem 'turbolinks_render'
 
 # Used to authentificate a specific level of a spot
 gem 'enumerize'
