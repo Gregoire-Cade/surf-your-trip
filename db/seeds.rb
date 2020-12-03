@@ -31,7 +31,7 @@ review1photo = URI.open('https://www.surfertoday.com/images/stories/hossegor.jpg
 review1.photo.attach(io: review1photo, filename: 'hossegor.jpg', content_type: 'image/jpg')
 
 file2 = URI.open('https://www.surfertoday.com/images/stories/hossegor.jpg')
-koszalin = Spot.create!(name: "Koszalin", location: "Wladyslawowo", country: "Poland", level: "Beginner", user: karolina, description: "Dabki (Koszalin), Leba and Wladyslawowo are also quite interesting beach breaks waiting for the Central European surfers. Sopot and Wladyslawowo are probably the most important wave riding centers in Poland.", beach_type: "Sandy", about_location: "blablabalbalbabla", punchline: "Try local oysters, you won't regret")
+koszalin = Spot.create!(name: "Wladyslawowo", location: "Wladyslawowo", country: "Poland", level: "Beginner", user: karolina, description: "Dabki (Koszalin) and Leba are also quite interesting beach breaks waiting for the Central European surfers. Sopot and Wladyslawowo are probably the most important wave riding centers in Poland.", beach_type: "Sandy", about_location: "blablabalbalbabla", punchline: "Try local oysters, you won't regret")
 koszalin.photos.attach(io: file2, filename: 'hossegor.jpg', content_type: 'image/jpg')
 review2 = Review.create(user: karolina, title: "Look at the waves!", content: "Best spot in town  Best spot in town Best spot in town", rating: 5, spot: koszalin)
 review2photo = URI.open('https://www.surfertoday.com/images/stories/hossegor.jpg')
