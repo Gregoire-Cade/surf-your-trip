@@ -1,6 +1,6 @@
-<div class="container mt-5" style="background-color: white; min-height: 455px;">
-  <%= link_to 'Back to Spots', spots_path, class: "btn btn-dark mt-2" %>
-  <h2 class="text-center pt-3">Upcoming Trips</h2>
+<div class="container mt-4 p-3" style="background-color: white; min-height: 455px;">
+  <%= link_to 'Back to Spots', spots_path, class: "btn btn-dark mt-3 ml-4" %>
+  <h2 class="text-center p-1">Upcoming Trips</h2>
   <div class="container">
     <% @upcoming_trips.each do |trip|%>
       <div class="card m-2">
@@ -14,6 +14,7 @@
               <p>From <%= trip.start_date%> Until <%= trip.end_date%></p>
               <p><%= trip.surfers %> surfers </p>
               <p>Level: <%= trip.spot.level%></p>
+              <p>Beach type: <%= trip.spot.beach_type%></p>
             </div>
             <div class="col-4 text-right">
               <p><%= link_to "Cancel the trip ❌", trip_path(trip), method: :delete, data: {confirm: "Do you really want to cancel the trip?"} %></p>
@@ -38,6 +39,7 @@
               <p>From <%= trip.start_date%> Until <%= trip.end_date%></p>
               <p><%= trip.surfers %> surfers </p>
               <p>Level: <%= trip.spot.level%></p>
+              <p>Beach type: <%= trip.spot.beach_type%></p>
             </div>
             <div class="col-4 text-right">
               <p><%= link_to "Leave a Review", new_spot_review_path(trip.spot), class: "btn btn-primary" %></p>
