@@ -38,7 +38,7 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initStarRating();
   flatpickr(".datepicker", {});
-  // getWeather();
+  getWeather();
   magicBtn();
 })
 
