@@ -51,7 +51,7 @@
                       <%= f.input :end_date, as: :string, label: false, input_html: {class: "datepicker form-control", placeholder: "End date"} %>
                     </div>
                     <div class="modal-footer">
-                      <%= f.submit "Surf my trip", class: "btn btn-primary" %>
+                      <%= f.submit "Add to my trip", class: "btn btn-primary" %>
                     </div>
                   <% end %>
                 </div>
@@ -68,7 +68,7 @@
         </p>
         <p class="text-right"><i class="far fa-comment mr-1" style="color: rgba(0,0,0,0.6); "></i> <%= @spot.reviews.count %> </p>
         <button type="button" class="button-spot" data-toggle="modal" data-target="#exampleModal">
-         Confirm this spot
+         Save this spot
         </button>
       </div>
     </div>
@@ -174,14 +174,14 @@
                 <%= (cl_image_tag(review.photo.key, height: 100, width: 150, crop: :fill, class:"ml-2 mb-3 rounded" )) %>
               <% end %>
             </div>
-          </div> 
+          </div>
           <% end %>
-      <% end %> 
-        
-    
-      
+      <% end %>
+
+
+
     </div>
-   
+
   </div>
 
   <div class="container mt-4 mb-3 justify-content-center card py-3 border rounded shadow" id="add-review">
