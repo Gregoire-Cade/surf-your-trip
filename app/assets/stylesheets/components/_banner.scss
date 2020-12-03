@@ -9,7 +9,7 @@
   width: 100%;
   object-fit: cover;
 }
-.banner-container{
+.banner-container {
   position: absolute;
   top: 0px;
   bottom: 0px;
@@ -19,8 +19,35 @@
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  padding-bottom: 90px;
+  padding-bottom: 150px;
+  text-decoration: none;
 }
+
+.homepage_btn{
+  color: #fff !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: transparent;
+  padding: 25px;
+  border-radius: 50px;
+  display: inline-block;
+  border: rgba(255, 145, 77, 0.301) 3px solid;
+  transition: all 0.4s ease 0s;
+   font-family: 'Staatliches', cursive;
+  font-size: 25px;
+  font-weight: light;
+  letter-spacing: 2px;
+}
+
+.homepage_btn:hover {
+text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
+-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+transition: all 0.4s ease 0s;
+text-decoration: none;
+}
+
+
 .banner h1 {
   margin: 0;
   color: white;

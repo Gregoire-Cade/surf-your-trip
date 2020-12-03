@@ -1,16 +1,7 @@
 <div class="banner position-relative">
   <%= video_tag "video.mp4", class: "banner-video", autoplay: :autoplay, loop: :loop, muted: :muted %>
   <div class="banner-container">
-    <button class="magicBtn">
-    <div class="moveGroup">
-      <div class="overflowCont">
-        Browse!
-      </div>
-      <div class="btnName">
-        Aloha!
-      </div>
-    </div>
-    </button>
+    <%= link_to "Browse Spots", spots_path, class: "homepage_btn" %>
   </div>
 </div>
 
