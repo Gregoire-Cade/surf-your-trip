@@ -30,6 +30,7 @@
         <em><i class="fas fa-map-marker-alt px-1" style="color: rgba(0,0,0,0.7);"></i><%= @spot.city + " , " + @spot.country %></em>
         <br>
         <br>
+        <p class="pl-2">Level: <%= @spot.level %></p>
         <!-- Button trigger modal -->
 
         <!-- Modal -->
@@ -157,7 +158,7 @@
                 <% else %>
                   <%= image_tag "avatar-default.png", height: 50, crop: :thumb, class: "avatar" %>
                 <% end %>
-                <p class="m-0"> &nbsp;&nbsp;<%= review.user.nickname %></p> <span><small> &nbsp;&nbsp;<%= review.created_at.strftime("%Y-%m-%d") %></small></span>
+                <p class="m-0"> &nbsp;&nbsp;<%= review.user.nickname + ', ' + review.user.location  %> </p> <span><small> &nbsp;&nbsp;<%= review.created_at.strftime("%Y-%m-%d") %></small></span>
               </div>
               <div class="waves mr-4">
                 <% review.rating.times do %>
