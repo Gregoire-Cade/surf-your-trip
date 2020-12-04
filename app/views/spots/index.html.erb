@@ -12,7 +12,7 @@
         </div>
         <div class="d-flex input-container align-items-center mb-3">
           <div class="p-2 form-inline">
-            <%= f.input :country, as: :string, required: false, label: false, placeholder: "Country...", input_html: {class: 'form-control-sm', style: "width: 330px; height: 38px;", value: params.dig(:search, :country) }%>
+            <%= f.input :country, as: :string, required: false, label: false, placeholder: "Country...", input_html: {class: 'form-control-sm, shadow p-3 bg-white rounded', style: "width: 330px; height: 38px;", value: params.dig(:search, :country) }%>
           </div>
             <div class="d-flex text-center ml-3 p-2">
             <%= f.submit "Search 🔍", class: "btn btn-primary mr-2" %>
